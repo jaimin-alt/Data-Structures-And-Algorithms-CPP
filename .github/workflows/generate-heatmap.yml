@@ -50,9 +50,9 @@ jobs:
           CELL       = 11
           GAP        = 2
           LEFT       = 38
-          TOP        = 28
+          TOP        = 46   # Extra room: title row (0-22) + month labels (22-46)
           STEP       = CELL + GAP
-          WIDTH      = LEFT + WEEKS * STEP + 14
+          WIDTH      = LEFT + (WEEKS + 1) * STEP + 14
           HEIGHT     = TOP + 7 * STEP + 32
 
           # Start = 53 weeks ago, aligned to Monday
@@ -72,9 +72,12 @@ jobs:
           lines = []
           lines.append(f'<svg width="{WIDTH}" height="{HEIGHT}" xmlns="http://www.w3.org/2000/svg">')
           lines.append(f'  <rect width="{WIDTH}" height="{HEIGHT}" fill="#0d1117" rx="8"/>')
-          lines.append(f'  <text x="{WIDTH//2}" y="17" fill="#58a6ff" font-family="Arial,sans-serif" '
+          # Title — sits in its own band at the very top
+          lines.append(f'  <text x="{WIDTH//2}" y="15" fill="#58a6ff" font-family="Arial,sans-serif" '
                        f'font-size="11" text-anchor="middle" font-weight="bold">'
                        f'DSA Repo — Contribution Heatmap</text>')
+          # Thin separator between title and month labels
+          lines.append(f'  <line x1="{LEFT-4}" y1="22" x2="{WIDTH-8}" y2="22" stroke="#21262d" stroke-width="1"/>')
 
           # Day labels (Mon, Wed, Fri)
           day_labels = {0:'Mon', 2:'Wed', 4:'Fri'}
@@ -83,7 +86,8 @@ jobs:
               lines.append(f'  <text x="2" y="{y}" fill="#8b949e" font-family="Arial,sans-serif" font-size="8">{label}</text>')
 
           # Month labels + cells
-          last_month = -1
+          last_month  = -1
+          last_label_x = -999  # track x of last drawn label to prevent overlap
           for w in range(WEEKS + 1):
               for d in range(7):
                   date = start + datetime.timedelta(weeks=w, days=d)
@@ -93,15 +97,17 @@ jobs:
                   x = LEFT + w * STEP
                   y = TOP  + d * STEP
 
-                  # Month label on first day of month
+                  # Month label — only draw if month changed AND far enough from last label
                   if d == 0 and date.month != last_month:
                       last_month = date.month
                       months = ['','Jan','Feb','Mar','Apr','May','Jun',
                                 'Jul','Aug','Sep','Oct','Nov','Dec']
-                      lines.append(
-                          f'  <text x="{x}" y="{TOP - 7}" fill="#8b949e" '
-                          f'font-family="Arial,sans-serif" font-size="9">'
-                          f'{months[date.month]}</text>')
+                      if x - last_label_x >= 22:   # skip if too cramped
+                          lines.append(
+                              f'  <text x="{x}" y="{TOP - 10}" fill="#8b949e" '
+                              f'font-family="Arial,sans-serif" font-size="9">'
+                              f'{months[date.month]}</text>')
+                          last_label_x = x
 
                   c = color(count)
                   tip = f"{count} commit{'s' if count!=1 else ''} on {date}"
