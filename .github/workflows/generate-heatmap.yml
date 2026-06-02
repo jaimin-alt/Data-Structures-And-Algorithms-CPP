@@ -46,7 +46,7 @@ jobs:
 
           # ── Layout constants ─────────────────────────────────────────
           today      = datetime.date.today()
-          WEEKS      = 52
+          WEEKS      = 53   # 53 ensures today is always inside the grid
           CELL       = 11
           GAP        = 2
           LEFT       = 38
@@ -55,7 +55,7 @@ jobs:
           WIDTH      = LEFT + WEEKS * STEP + 14
           HEIGHT     = TOP + 7 * STEP + 32
 
-          # Start = 52 weeks ago, aligned to Monday
+          # Start = 53 weeks ago, aligned to Monday
           start = today - datetime.timedelta(weeks=WEEKS)
           start = start - datetime.timedelta(days=start.weekday())  # Monday
 
@@ -84,7 +84,7 @@ jobs:
 
           # Month labels + cells
           last_month = -1
-          for w in range(WEEKS):
+          for w in range(WEEKS + 1):
               for d in range(7):
                   date = start + datetime.timedelta(weeks=w, days=d)
                   if date > today:
