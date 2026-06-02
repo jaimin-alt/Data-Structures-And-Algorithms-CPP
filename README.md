@@ -110,16 +110,6 @@ Data-Structures-And-Algorithms-CPP/
 
 ---
 
-## 🐍 GitHub Contribution Snake
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/jaimin-alt/Data-Structures-And-Algorithms-CPP/output/github-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/jaimin-alt/Data-Structures-And-Algorithms-CPP/output/github-snake.svg">
-  <img alt="github contribution snake" src="https://raw.githubusercontent.com/jaimin-alt/Data-Structures-And-Algorithms-CPP/output/github-snake.svg">
-</picture>
-
----
-
 ## 🛠️ Tech Stack
 
 | Tool | Purpose |
@@ -127,7 +117,6 @@ Data-Structures-And-Algorithms-CPP/
 | **C++** | Primary language for all solutions |
 | **Markdown** | Documentation and problem notes |
 | **VS Code** | Development environment |
-| **GitHub Actions** | Snake animation auto-refresh |
 | **LeetHub v3** | Auto-sync LeetCode solutions → this repo |
 | **GfG to GitHub** | Auto-sync GFG solutions → this repo |
 
