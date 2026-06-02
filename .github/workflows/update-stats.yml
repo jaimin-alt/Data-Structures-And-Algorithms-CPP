@@ -1,0 +1,95 @@
+name: 📊 Auto-Update Problem Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # Runs daily at midnight UTC
+  workflow_dispatch:       # Manual trigger from Actions tab
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Stats and Update README
+        run: |
+          python3 << 'EOF'
+          import re, json, urllib.request, sys
+
+          # ── Fetch LeetCode total ──────────────────────────────────────
+          lc_total = 0
+          try:
+              url = "https://leetcode-stats-api.herokuapp.com/jaimin_123"
+              req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+              with urllib.request.urlopen(req, timeout=15) as r:
+                  data = json.loads(r.read())
+                  lc_total = int(data.get("totalSolved", 0))
+              print(f"LeetCode total: {lc_total}")
+          except Exception as e:
+              print(f"LeetCode API error: {e}")
+
+          # ── Fetch GFG total ───────────────────────────────────────────
+          gfg_total = 0
+          try:
+              url = "https://gfgstatscard.vercel.app/jaiminvankar?raw=true"
+              req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+              with urllib.request.urlopen(req, timeout=15) as r:
+                  data = json.loads(r.read())
+                  # Try common keys returned by gfgstatscard raw API
+                  gfg_total = int(
+                      data.get("totalProblemsSolved") or
+                      data.get("problemsSolved") or
+                      data.get("totalSolved") or
+                      (data.get("school",0) + data.get("basic",0) +
+                       data.get("easy",0) + data.get("medium",0) +
+                       data.get("hard",0)) or 0
+                  )
+              print(f"GFG total: {gfg_total}")
+          except Exception as e:
+              print(f"GFG API error: {e}")
+
+          # ── Skip update if both APIs failed ──────────────────────────
+          if lc_total == 0 and gfg_total == 0:
+              print("Both APIs failed — skipping README update.")
+              sys.exit(0)
+
+          combined = lc_total + gfg_total
+          print(f"Combined total: {combined}")
+
+          # ── Update README between markers ────────────────────────────
+          new_block = f"""<!-- STATS_START -->
+          <p align="center">
+            <img src="https://img.shields.io/badge/LeetCode%20Solved-{lc_total}-FFA116?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0d1117"/>
+            &nbsp;
+            <img src="https://img.shields.io/badge/GFG%20Solved-{gfg_total}-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white&labelColor=0d1117"/>
+            &nbsp;
+            <img src="https://img.shields.io/badge/Total%20Solved-{combined}-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0d1117"/>
+          </p>
+          <!-- STATS_END -->"""
+
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+
+          updated = re.sub(
+              r"<!-- STATS_START -->.*?<!-- STATS_END -->",
+              new_block,
+              content,
+              flags=re.DOTALL
+          )
+
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(updated)
+
+          print("README updated successfully.")
+          EOF
+
+      - name: Commit and Push (only if changed)
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action [Stats Bot]"
+          git add README.md
+          git diff --staged --quiet && echo "No changes." || (git commit -m "chore: auto-update problem count stats" && git push)

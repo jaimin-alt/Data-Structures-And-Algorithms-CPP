@@ -3,14 +3,22 @@
 # 🗂️ Data Structures & Algorithms — C++
 
 <p align="center">
-  <img src="https://img.shields.io/github/last-commit/jaimin-alt/Data-Structures-And-Algorithms-CPP?style=for-the-badge&color=58a6ff&labelColor=0d1117&logo=github" alt="Last Commit"/>
-  &nbsp;
-  <img src="https://img.shields.io/github/commit-activity/m/jaimin-alt/Data-Structures-And-Algorithms-CPP?style=for-the-badge&color=3fb950&labelColor=0d1117&logo=git&logoColor=white" alt="Commit Activity"/>
-  &nbsp;
   <img src="https://img.shields.io/badge/Language-C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white&labelColor=0d1117"/>
   &nbsp;
   <img src="https://img.shields.io/badge/Platforms-LeetCode%20%7C%20GFG-f97316?style=for-the-badge&labelColor=0d1117"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Maintained-Daily-3fb950?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117"/>
 </p>
+
+<!-- STATS_START -->
+<p align="center">
+  <img src="https://img.shields.io/badge/LeetCode%20Solved-403-FFA116?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0d1117"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/GFG%20Solved-53-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white&labelColor=0d1117"/>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Total%20Solved-456-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0d1117"/>
+</p>
+<!-- STATS_END -->
 
 <p align="center">
   <em>A structured, daily-updated collection of <strong>LeetCode</strong> and <strong>GeeksforGeeks</strong> solutions in <strong>C++</strong>,<br/>
@@ -43,7 +51,7 @@ Data-Structures-And-Algorithms-CPP/
 
 <br/>
 
-[![DSA Repo Activity](https://github-readme-activity-graph.vercel.app/graph?username=jaimin-alt&repo=Data-Structures-And-Algorithms-CPP&bg_color=0d1117&color=58a6ff&line=58a6ff&point=ffffff&area=true&area_color=1e3a5f&hide_border=true&custom_title=DSA%20Repository%20—%20Commit%20Activity)](https://github.com/jaimin-alt/Data-Structures-And-Algorithms-CPP)
+[![DSA Repo Activity](https://github-readme-activity-graph.vercel.app/graph?username=jaimin-alt&repo=Data-Structures-And-Algorithms-CPP&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&area=true&area_color=0d2136&hide_border=true&radius=6&custom_title=DSA%20Repository%20%E2%80%94%20Commit%20Activity)](https://github.com/jaimin-alt/Data-Structures-And-Algorithms-CPP)
 
 ---
 
