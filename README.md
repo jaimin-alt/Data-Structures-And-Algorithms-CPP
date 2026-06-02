@@ -47,11 +47,11 @@ Data-Structures-And-Algorithms-CPP/
 
 ## 📈 Consistency Tracker
 
-> Commit activity for **this repo only** — every point on the graph is a day I pushed solutions.
+> Full GitHub contribution history — every peak is a period of active problem solving.
 
 <br/>
 
-[![DSA Repo Activity](https://github-readme-activity-graph.vercel.app/graph?username=jaimin-alt&repo=Data-Structures-And-Algorithms-CPP&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&area=true&area_color=0d2136&hide_border=true&radius=6&custom_title=DSA%20Repository%20%E2%80%94%20Commit%20Activity)](https://github.com/jaimin-alt/Data-Structures-And-Algorithms-CPP)
+[![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=jaimin-alt&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&area=true&area_color=0d2136&hide_border=true&radius=6&custom_title=GitHub%20Contribution%20Activity)](https://github.com/jaimin-alt/Data-Structures-And-Algorithms-CPP)
 
 ---
 
