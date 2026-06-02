@@ -47,46 +47,23 @@ Data-Structures-And-Algorithms-CPP/
 
 ---
 
-## 🔗 Synced Platforms
+## 🔗 Platforms
 
-> Solutions are **automatically pushed** to this repo the moment a problem is accepted — no manual commits needed.
-
-<br/>
+Problems are solved on these platforms and **manually committed** to this repo, organized by topic/pattern.
 
 ### 🟡 LeetCode
 
 | | |
 |:---|:---|
 | 🔗 **Profile** | [leetcode.com/u/jaimin_123](https://leetcode.com/u/jaimin_123/) |
-| ⚙️ **Sync Method** | Auto-committed via **LeetHub v3** Chrome Extension |
-| 📂 **Organized by** | Topic / Pattern |
+| 📂 **Organized by** | Topic / Pattern (manual, intentional structure) |
 
 ### 🟢 GeeksforGeeks
 
 | | |
 |:---|:---|
 | 🔗 **Profile** | [geeksforgeeks.org/profile/jaiminvankar](https://www.geeksforgeeks.org/profile/jaiminvankar) |
-| ⚙️ **Sync Method** | Auto-committed via **GfG to GitHub** Chrome Extension |
-| 📂 **Organized by** | Topic / Category |
-
-<details>
-<summary>⚙️ <strong>How automation works — click to expand</strong></summary>
-
-<br/>
-
-**LeetCode → GitHub:**
-1. Install [LeetHub v3](https://chromewebstore.google.com/detail/leethub-v3/nhkhijbohahocaaadmmbbhmdlfonkeck) from Chrome Web Store
-2. Authenticate with your GitHub account
-3. Select this repository as the target
-4. ✅ Every accepted LeetCode submission auto-commits here
-
-**GeeksforGeeks → GitHub:**
-1. Install [GfG to GitHub](https://chromewebstore.google.com/detail/gfg-to-github/ggnkdfmlgekfmeebcdbhbdkbbojpkdln) from Chrome Web Store
-2. Authenticate with your GitHub account
-3. Select this repository as the target
-4. ✅ Every accepted GFG submission auto-commits here
-
-</details>
+| 📂 **Organized by** | Topic / Category (manual, intentional structure) |
 
 ---
 
@@ -117,8 +94,6 @@ Data-Structures-And-Algorithms-CPP/
 | **C++** | Primary language for all solutions |
 | **Markdown** | Documentation and problem notes |
 | **VS Code** | Development environment |
-| **LeetHub v3** | Auto-sync LeetCode solutions → this repo |
-| **GfG to GitHub** | Auto-sync GFG solutions → this repo |
 
 ---
 
