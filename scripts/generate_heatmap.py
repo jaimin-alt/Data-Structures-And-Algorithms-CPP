@@ -1,23 +1,34 @@
 import subprocess, datetime, os
 
-# ── Get all commit dates from THIS repo ──────────────────────────────
+# ── Bot emails to exclude (GitHub Actions automated commits) ─────────
+BOT_EMAILS = {'action@github.com', 'github-actions[bot]@users.noreply.github.com'}
+
+# ── Get all commit dates from THIS repo (with author email) ──────────
 result = subprocess.run(
-    ['git', 'log', '--format=%ad', '--date=format:%Y-%m-%d'],
+    ['git', 'log', '--format=%ad|%ae', '--date=format:%Y-%m-%d'],
     capture_output=True, text=True
 )
-raw_dates = result.stdout.strip().split('\n')
+raw_lines = result.stdout.strip().split('\n')
 date_counts = {}
-for d in raw_dates:
-    d = d.strip()
-    if not d:
+skipped = 0
+for line in raw_lines:
+    line = line.strip()
+    if not line:
         continue
     try:
+        parts = line.split('|', 1)
+        d = parts[0]
+        author = parts[1] if len(parts) > 1 else ''
+        # Skip bot/automated commits
+        if author in BOT_EMAILS:
+            skipped += 1
+            continue
         dt = datetime.date.fromisoformat(d)
         date_counts[dt] = date_counts.get(dt, 0) + 1
     except Exception:
         pass
 
-print(f"Found {sum(date_counts.values())} commits across {len(date_counts)} days.")
+print(f"Found {sum(date_counts.values())} commits across {len(date_counts)} days (skipped {skipped} bot commits).")
 
 # ── Layout ────────────────────────────────────────────────────────────
 today  = datetime.date.today()
