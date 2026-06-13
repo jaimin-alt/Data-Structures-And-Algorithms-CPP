@@ -67,14 +67,15 @@ jobs:
               req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
               with urllib.request.urlopen(req, timeout=15) as r:
                   data = json.loads(r.read())
-                  # Try common keys returned by gfgstatscard raw API
+                  # API returns snake_case keys like 'total_problems_solved'
                   gfg_total = int(
+                      data.get("total_problems_solved") or
                       data.get("totalProblemsSolved") or
                       data.get("problemsSolved") or
                       data.get("totalSolved") or
-                      (data.get("school",0) + data.get("basic",0) +
-                       data.get("easy",0) + data.get("medium",0) +
-                       data.get("hard",0)) or 0
+                      (data.get("School",0) + data.get("Basic",0) +
+                       data.get("Easy",0) + data.get("Medium",0) +
+                       data.get("Hard",0)) or 0
                   )
               print(f"GFG total: {gfg_total}")
           except Exception as e:
