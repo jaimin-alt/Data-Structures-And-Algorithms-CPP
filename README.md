@@ -14,9 +14,9 @@
 <p align="center">
   <img src="https://img.shields.io/badge/LeetCode%20Solved-411-FFA116?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0d1117"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/GFG%20Solved-0-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white&labelColor=0d1117"/>
+  <img src="https://img.shields.io/badge/GFG%20Solved-56-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white&labelColor=0d1117"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/Total%20Solved-411-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0d1117"/>
+  <img src="https://img.shields.io/badge/Total%20Solved-467-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0d1117"/>
 </p>
 <!-- STATS_END -->
 
