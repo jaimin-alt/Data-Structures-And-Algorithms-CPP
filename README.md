@@ -12,11 +12,11 @@
 
 <!-- STATS_START -->
 <p align="center">
-  <img src="https://img.shields.io/badge/LeetCode%20Solved-412-FFA116?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0d1117"/>
+  <img src="https://img.shields.io/badge/LeetCode%20Solved-414-FFA116?style=for-the-badge&logo=leetcode&logoColor=white&labelColor=0d1117"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/GFG%20Solved-56-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white&labelColor=0d1117"/>
+  <img src="https://img.shields.io/badge/GFG%20Solved-57-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white&labelColor=0d1117"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/Total%20Solved-468-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0d1117"/>
+  <img src="https://img.shields.io/badge/Total%20Solved-471-4CAF50?style=for-the-badge&logo=checkmarx&logoColor=white&labelColor=0d1117"/>
 </p>
 <!-- STATS_END -->
 
